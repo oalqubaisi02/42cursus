@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oalqubai <oalqubai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 18:43:18 by omar              #+#    #+#             */
-/*   Updated: 2024/05/17 20:09:38 by omar             ###   ########.fr       */
+/*   Created: 2024/05/17 21:53:28 by oalqubai          #+#    #+#             */
+/*   Updated: 2024/05/18 22:03:23 by oalqubai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_next_line(char *buff1)
 	if (buff1[index1] == '\0')
 		return (free(buff1), NULL);
 	buff2 = malloc(sizeof(char) * (ft_strlen(buff1) - index1 + 1));
-	if (buff1 == NULL)
+	if (buff2 == NULL)
 		return (NULL);
 	index1++;
 	if (!buff1[index1])
@@ -97,7 +97,7 @@ char	*ft_read_file(int filedis, char *buff1)
 char	*get_next_line(int filedis)
 {
 	char		*line;
-	static char	*buffer[9999];
+	static char	*buffer[1024];
 
 	if (filedis < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

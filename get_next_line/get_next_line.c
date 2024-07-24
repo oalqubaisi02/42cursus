@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oalqubai <oalqubai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:42:33 by oalqubai          #+#    #+#             */
-/*   Updated: 2024/05/17 18:28:43 by omar             ###   ########.fr       */
+/*   Updated: 2024/05/18 21:22:55 by oalqubai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_next_line(char *buff1)
 	if (buff1[index1] == '\0')
 		return (free(buff1), NULL);
 	buff2 = malloc(sizeof(char) * (ft_strlen(buff1) - index1 + 1));
-	if (buff1 == NULL)
+	if (!buff2)
 		return (NULL);
 	index1++;
 	if (!buff1[index1])
@@ -49,12 +49,9 @@ char	*ft_get_line(char *buffer)
 	index = 0;
 	if (!buffer[index])
 		return (NULL);
-	while (buffer[index] != '\0' && buffer[index] != '\n')
-		index++;
-	line = (char *)malloc(sizeof(char) * (index + 2));
+	line = (char *)malloc(sizeof(char) * (ft_strlen(buffer) + 2));
 	if (!line)
 		return (NULL);
-	index = 0;
 	while (buffer[index] != '\0' && buffer[index] != '\n')
 	{
 		line[index] = buffer[index];
